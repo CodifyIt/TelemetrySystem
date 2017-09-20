@@ -55,12 +55,15 @@ window.avant = function(){
         tim = 0;
     }
 }
+window.s = function(){
+
+
 var a=setInterval(function()
 {
     b+=.01;
 },10);
 
-
+}
 var coun=0;
 function animate() {
     
