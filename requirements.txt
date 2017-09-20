@@ -16,3 +16,5 @@ pycparser==2.18
 SQLAlchemy==1.1.14
 Werkzeug==0.12.2
 psycopg2==2.7.3.1
+requests==2.18.4
+requests-oauthlib==0.8.0
