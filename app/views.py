@@ -6,6 +6,7 @@ import datetime
 import os,time
 import json
 import random
+import requests
 from itertools import cycle
 from app.models import *
 
@@ -29,13 +30,13 @@ def data():
 		js_obj = json.loads(js_obj)
 	 	print "1st : ",request.data
 		print "I was post"
-	lon = js_obj['lon']
-	lat = js_obj['lat']
-	speed = js_obj['speed']
+	lon = str(js_obj['lon'])
+	lat = str(js_obj['lat'])
+	speed = str(js_obj['speed'])
 	color_r = js_obj['c_r']
 	color_g = js_obj['c_g']
 	color_b = js_obj['c_b']
-	gas = js_obj['gas']
+	gas = str(js_obj['gas'])
 	print lon, lat, speed, color_r, color_g, color_b, gas
 	temp = ""
 	humidity = ""

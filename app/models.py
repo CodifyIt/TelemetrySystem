@@ -4,15 +4,15 @@ class Car(db.Model):
 	__tablename__ = "car_details"
 
 	car_id = db.Column(db.Integer, primary_key=True)
-	longitude = db.Column(db.Float(precision='10,6'),nullable=False)
-	latitude = db.Column(db.Float(precision='9,6'),nullable=False)
-	speed = db.Column(db.Float(precision='6,3'),nullable=False)
+	longitude = db.Column(db.String,nullable=False)
+	latitude = db.Column(db.String,nullable=False)
+	speed = db.Column(db.String,nullable=False)
 	color_r = db.Column(db.Integer,nullable=False)
 	color_g = db.Column(db.Integer,nullable=False)
 	color_b = db.Column(db.Integer,nullable=False)
-	temp = db.Column(db.Float(precision='6,3'),nullable=False)
-	humidity = db.Column(db.Float(precision='6,3'),nullable=False)
-	gas = db.Column(db.Float(precision='6,3'),nullable=False)
+	temp = db.Column(db.String,nullable=False)
+	humidity = db.Column(db.String,nullable=False)
+	gas = db.Column(db.String,nullable=False)
 	def __init__ (self,longitude,latitude,speed,color_r,color_g,color_b,temp,humidity,gas):
 		self.longitude = longitude
 		self.latitude = latitude
