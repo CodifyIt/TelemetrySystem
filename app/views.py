@@ -4,7 +4,6 @@ from sqlalchemy import desc
 from app.models import *
 import datetime 
 import os,time
-import requests
 import json
 import random
 from itertools import cycle
