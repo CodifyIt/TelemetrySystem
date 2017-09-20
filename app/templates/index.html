@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>	
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--     <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo11.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cc.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo1.css') }}">
+
+   <script type = "text/javascript" src = "{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.final-countdown.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/kinetic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/temp_humid.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+	<title>jQuery Final Countdown Plugin</title>
+</head>
+
+
+<body>
+<br>
+<div class="container">
+<div class="row">
+ 
+    <div class ="col-xs-3">
+    <span>
+        <h3>Location Parameters</h3>
+     
+    </span>
+
+    </div>
+
+<div class ="col-xs-6">
+    <span>
+     <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TELEMETRY SYSTEM</h3>
+    </span>
+    </div>
+
+    <div class ="col-xs-3">
+    <span>
+    <button type="checkbox" name="start_stop" id="start_stop" class="btn" onclick="sam();star();myFunction();avant();">
+     Start 
+    </button>
+    </span>
+    </div>
+<br><br>
+</div>
+<div class="row">
+       <div class ="col-xs-2">
+   <table>    
+      
+      <tbody>
+        <tr><td>Temperature: <inline id="temp">0</inline></td></tr>
+            <tr><td>Humidity: <inline id="humid"></inline></td></tr>
+            <tr><td>Gas: <inline id="gas"></inline></td></tr>
+            <tr><td>Latitude: <inline id="lat"></inline></td></tr>
+            <tr><td>Longitude: <inline id="lon"></inline></td></tr>
+            <tr><td>Speed: <inline id="speed"></inline></td></tr>
+            <tr><td>Checkpoint No.: <inline id="q8">1</inline></td></tr>
+            <tr><td>Distance Travelled: <inline id="q9"></inline></td></tr>
+      </tbody>
+    </table>
+</div>
+    <div class ="col-xs-7">
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/draw.js') }}"></script>
+   <canvas id="canvas" width=450 height=400></canvas>
+   
+</div>
+<div class="col-xs-3">
+   <img class="img-responsive" src="{{ url_for('static', filename='img/top.jpg') }}" alt="Renault">
+</div>
+</div>
+</div>
+<br>
+ <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+    <div id="tester" style="width:100%;height:280px;"></div>
+  
+    <script  src="{{ url_for('static', filename='js/plot.js') }}"></script>
+</div>
+
+<div class="col-xs-4">
+<span>Total Laps : <inline id="ts12">0</inline></span>
+<br>
+<span id="ts8">Total Time : <inline id="hrs">00</inline>:<inline id="min">00</inline>:<inline id="sec">00</inline></span>
+<br><br>
+<table>
+    
+       <tbody>
+        <tr>
+          <th scope="row">Checkpoint 1</th>
+          <td><inline id="ts1">00:00</inline></td>
+        
+        </tr>
+        <tr>
+          <th scope="row">Checkpoint 2</th>
+          <td><inline id="ts2">00:00</inline></td>
+        </tr>
+        <tr>
+          <th scope="row">Checkpoint 3</th>
+          <td><inline id="ts3">00:00</inline></td>
+        </tr><tr>
+          <th scope="row">Checkpoint 4</th>
+          <td><inline id="ts4">00:00</inline></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+<br>
+<div class="col-xs-4">
+<span id="ts9">Rover Health Data : Temperature <inline id="r_temp"></inline></span>
+<br><br>
+<div class="row">
+    <div class="col-xs-6">
+          <div data-percent="59" id="sama"></div>
+  
+    <script  src="{{ url_for('static', filename='js/indexs.js') }}"></script>
+    </div>
+    <div class="col-xs-6">
+
+<canvas id="mycanvas" width="100" height="100"></canvas>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/circle_ki.js') }}"></script>
+</div>
+</div>
+<br>
+<span id="ts10">Color of Rocks : <inline id="cr"></inline><inline id="cg"></inline><inline id="cb"></inline></span>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">  
+    function star() {
+        'use strict';
+        
+    	$('.countdown').final_countdown({
+            'start': 1362139200,
+            'end': 1388461320,
+            'now': 1387461319        
+        });
+    }
+    function sam()
+    {
+    sm();
+    }
+    function myFunction() {
+        var change = document.getElementById("start_stop");
+        if (change.innerHTML == "Stop")
+        {
+            change.innerHTML = "Start";
+        }
+        else 
+          change.innerHTML="Stop";
+
+    }
+</script>
+
+</body>
+</html>

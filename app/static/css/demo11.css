@@ -1,0 +1,208 @@
+html, body {
+	height: 50%;
+}
+
+
+
+body {
+
+	background-image: url('../img/pattern.png');
+	background-color: rgba(0,0,0,0.8);	
+	background-position: center center;
+	background-repeat: repeat;
+	background-size: cover;	
+	font-family: 'Raleway', 'Arial', sans-serif;
+}
+
+
+.canvas {
+     border:1px solid red;
+    }
+.countdown-container {
+	position: relative;
+	top: 30%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+  min-height: 0px;
+}
+
+#circle {
+  height: 80px;
+  width: 80px;
+  
+  background-color: #fff;
+  border: 2px solid blue;
+  border-radius: 80px;
+  position: absolute;
+}
+
+.bla{
+    width: 60%;
+    border: 2px solid white;
+    padding: 5%;
+    border-bottom-left-radius: 9em;
+    border-bottom-right-radius: 9em;
+    border-top-right-radius: 9em;
+    border-top-left-radius: 9em;
+}
+
+.clock-item .inner {
+	height: 0px;
+	padding-bottom: 100%;
+	position: relative;	
+	width: 100%;
+}
+
+.clock-canvas {
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	height: 0px;
+	padding-bottom: 100%;
+}
+
+.btn{
+
+	background:none;
+	border:2px solid gray;
+	color: rgb(211,211,211);
+}
+.btn:hover{
+	text-decoration: none;
+	color: white;
+}
+.btn:visited{
+	color:white;
+}
+.btn:focus{
+	color:white;
+}
+.btn:active{
+	color:white;
+}
+
+.text {
+	color: #ffffff;	
+	font-size: 30px;
+	font-weight: bold;	
+	margin-top: -60px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	width: 100%;
+}
+
+#ts1{
+	color: #ffffff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	
+
+}
+
+#ts4{
+	color: #ffffff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	
+
+}
+#ts8{
+	color: #ffffff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+
+	
+
+}
+
+#ts12{
+	color: #ffffff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+}
+
+
+
+
+#ts9{
+	color: #ffffff;	
+	font-size: 21px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	}
+	#ts10{
+	color: #ffffff;	
+	font-size: 21px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	}
+
+
+#ts3{
+	color: #fff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}
+
+#ts2{
+	color: #ffffff;	
+	font-size: 25px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	
+}
+
+#ts5{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: bold;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}
+#ts6{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: bold;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+
+}
+
+.text .val {
+	font-size: 60%;
+}
+
+.text .type-time {
+	font-size: 20px;
+}
+h2{
+  line-height: 13px; 
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.clock-item {
+		margin-bottom: 30px;		
+	}
+}
+
+@media (max-width: 767px) {
+	.clock-item {
+		margin: 0px 30px 30px 30px;
+	}
+}
