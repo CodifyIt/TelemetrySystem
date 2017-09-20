@@ -41,4 +41,4 @@ $(document).ready(setInterval(function(){
             $("#sama").attr('data-percent',Math.floor(Math.random()*100))
         }
     });
-},3000));
+},5000));
