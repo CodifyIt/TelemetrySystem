@@ -2,8 +2,6 @@ html, body {
 	height: 50%;
 }
 
-
-
 body {
 
 	background-image: url('../img/pattern.png');
@@ -12,6 +10,7 @@ body {
 	background-repeat: repeat;
 	background-size: cover;	
 	font-family: 'Raleway', 'Arial', sans-serif;
+	overflow: hidden;
 }
 
 
@@ -36,7 +35,12 @@ body {
   border-radius: 80px;
   position: absolute;
 }
-
+#mycanvas{
+    padding: none;
+    margin-left:28px;	
+    margin-top:12px;	
+    display:block;
+}
 .bla{
     width: 60%;
     border: 2px solid white;
@@ -55,30 +59,31 @@ body {
 }
 
 .clock-canvas {
-	background-color: rgba(255, 255, 255, .1);
+	background-color: rgba(26, 26, 26, .1);
 	border-radius: 50%;
 	height: 0px;
 	padding-bottom: 100%;
 }
 
 .btn{
-
-	background:none;
-	border:2px solid gray;
-	color: rgb(211,211,211);
+    margin-top: 6px;
+	background-color: #00e6e6;
+	border:2px solid black;
+	color: rgb(0,0,0);
+	 width:80%;
 }
 .btn:hover{
 	text-decoration: none;
-	color: white;
+	color: black;
 }
 .btn:visited{
-	color:white;
+	color:black;
 }
 .btn:focus{
-	color:white;
+	color:black;
 }
 .btn:active{
-	color:white;
+	color:black;
 }
 
 .text {
@@ -112,11 +117,12 @@ body {
 	
 
 }
+
 #ts8{
 	color: #ffffff;	
 	font-size: 25px;
 	font-weight: 350;	
-	text-align: center;
+	text-align: left;
 	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
 
 	
@@ -128,6 +134,13 @@ body {
 	font-size: 25px;
 	font-weight: 350;	
 	text-align: center;
+	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+}
+#s1{
+	color: #ffffff;	
+	font-size: 20px;
+	font-weight: 300;	
+	text-align: left;
 	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
 }
 
@@ -158,7 +171,78 @@ body {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }
-
+#ps1{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}
+#ps2{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps3{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps4{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps5{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps6{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps7{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps8{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps9{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}#ps10{
+	color: #fff;	
+	font-size: 20px;
+	font-weight: 350;	
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	
+}
 #ts2{
 	color: #ffffff;	
 	font-size: 25px;

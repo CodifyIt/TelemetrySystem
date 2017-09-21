@@ -1,4 +1,6 @@
-var angle=48;
+var canvas = document.getElementById("mycanvas");
+draw(canvas,);
+
 if(angle==0){
   var canvas = document.getElementById("mycanvas");
 draw(canvas,1);

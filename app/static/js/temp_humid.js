@@ -27,18 +27,18 @@ $(document).ready(setInterval(function(){
         dataType: 'json',
         success: function(data){
 
-	        $("#temp").html("<style='color: white;'>"+data.temp+"C");
+	        $("#temp").html("<style='color: white;'>"+data.temp+"℃");
             window.grph(data.temp);
             $("#humid").html("<style='color: white;'>"+data.humid+"%");
             $("#gas").html("<style='color: white;'>"+gas);
             $("#lon").html("<style='color: white;'>"+long.toFixed(2));
             $("#lat").html("<style='color: white;'>"+lati.toFixed(2));
             $("#speed").html("<style='color: white;'>"+spd);
-            $("#cr").html("<style='color: white;'>"+"R:"+color_r+" ");
-            $("#cg").html("<style='color: white;'>"+"G:"+color_g+" ");
-	        $("#cb").html("<style='color: white;'>"+"B:"+color_b);
-            $("#r_temp").html("<style='color: white;'>"+Math.floor(Math.random()*100)+"C");
-            $("#sama").attr('data-percent',Math.floor(Math.random()*100))
+            $("#cr").html("<style='color: white;'>"+color_r+" ");
+            $("#cg").html("<style='color: white;'>"+color_g+" ");
+	        $("#cb").html("<style='color: white;'>"+color_b);
+            $("#r_temp").html("<style='color: white;'>"+Math.floor(Math.random()*100)+"℃");
+            $("#battery").attr('data-percent',Math.floor(Math.random()*100))
         }
     });
-},60000*60));
+},2000));

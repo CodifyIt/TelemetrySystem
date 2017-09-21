@@ -12,8 +12,6 @@ function graph(){
 	    paper_bgcolor:'rgba(0,0,0,0)',
 	    plot_bgcolor:'rgba(0,0,0,0)'
 	     });
-
-	/* Current Plotly.js version */
 	console.log( Plotly.BUILD );	
 }
 

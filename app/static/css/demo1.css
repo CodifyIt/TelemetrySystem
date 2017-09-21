@@ -6,19 +6,18 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.8em;
+  font-size: 1.7em;
   color: #ffffff;
 }
 
 table {
   width: 240px;
   margin: 10px auto;
-  height:100px;
-  
+  height:100px;  
 }
 
 caption {
-  font-size: 4em;
+  font-size: 2em;
   font-weight: 400;
   padding: 10px ;
 }
@@ -34,15 +33,19 @@ tr {
   border-bottom: 1px solid #FFF;
   margin-bottom: 5px;
 }
+ #row1{
+  text-align: left;
+  font-weight: 300;
+}
 
-tr:nth-child(even) {
+#c_time{
   background-color: rgba(255, 255, 255, .1)
 }
 
 th, td {
   text-align: center;
-  padding: 10px;
-  font-weight: 350;
+  padding: 8px;
+  font-weight: 300;
 }
 
 tfoot tr {

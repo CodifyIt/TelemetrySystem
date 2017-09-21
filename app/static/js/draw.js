@@ -71,27 +71,56 @@ function animate() {
     distance +=1;
     document.getElementById('q9').innerHTML = distance;
     percent += direction;
-    if(percent == 25)
-    document.getElementById('q8').innerHTML = 2;
-if(percent == 50)
-    document.getElementById('q8').innerHTML = 3;
-if(percent == 75)
-    document.getElementById('q8').innerHTML = 4;
-if(percent == 100)
+    if(percent == 4)
     document.getElementById('q8').innerHTML = 1;
-    if(percent>17 && percent<=24){
-        document.getElementById('ts1').innerHTML=b.toFixed(2);
+if(percent == 11)
+    document.getElementById('q8').innerHTML = 2;
+if(percent == 17)
+    document.getElementById('q8').innerHTML = 3;
+if(percent == 25)
+    document.getElementById('q8').innerHTML = 4;
+if(percent == 32)
+    document.getElementById('q8').innerHTML = 5;
+if(percent == 39)
+    document.getElementById('q8').innerHTML = 6;
+if(percent == 46)
+    document.getElementById('q8').innerHTML = 7;
+if(percent == 61)
+    document.getElementById('q8').innerHTML = 8;
+if(percent == 71)
+    document.getElementById('q8').innerHTML = 9;
+if(percent == 80)
+    document.getElementById('q8').innerHTML = 10;
+
+    if(percent>=17 && percent<=24){
+        document.getElementById('ps3').innerHTML=b.toFixed(2);
     }
-    if(percent>=40 && percent<=49){
-        document.getElementById('ts2').innerHTML=b.toFixed(2);
+    if(percent>=11 && percent<=16){
+        document.getElementById('ps2').innerHTML=b.toFixed(2);
     }
-    if(percent>=65 && percent<=74){
-        document.getElementById('ts3').innerHTML=b.toFixed(2);
+    if(percent>=4 && percent<=10){
+        document.getElementById('ps1').innerHTML=b.toFixed(2);
     }
-    if(percent>=90 && percent<=99){
-        document.getElementById('ts4').innerHTML=b.toFixed(2);
-        
-       
+    if(percent>31 && percent<=38){
+        document.getElementById('ps5').innerHTML=b.toFixed(2);
+        }
+            if(percent>=25 && percent<=31){
+        document.getElementById('ps4').innerHTML=b.toFixed(2);
+    }
+    if(percent>=39 && percent<=45){
+        document.getElementById('ps6').innerHTML=b.toFixed(2);
+    }
+    if(percent>=46 && percent<=60){
+        document.getElementById('ps7').innerHTML=b.toFixed(2);
+    }
+    if(percent>=61 && percent<=70){
+        document.getElementById('ps8').innerHTML=b.toFixed(2);
+        }
+           if(percent>=71 && percent<=79){
+        document.getElementById('ps9').innerHTML=b.toFixed(2);
+    }
+    if(percent>=80 && percent<=100){
+        document.getElementById('ps10').innerHTML=b.toFixed(2);
     }
     if(percent==100 ){
         
@@ -100,9 +129,6 @@ if(percent == 100)
         var x=coun;
         document.getElementById('ts12').innerHTML=x;
     }
-
-    
-
 
     if (percent < 0) {
         percent = 0;
@@ -114,12 +140,6 @@ if(percent == 100)
     };
 
     draw(percent);
-
-
-    // request another frame
-/*    setTimeout(function () {
-        requestAnimationFrame(animate);
-    }, 1000 / fps);*/
 }
 
 window.sm=function()
@@ -151,35 +171,58 @@ function draw(sliderValue) {
     ctx.lineWidth = 5;
 
     ctx.beginPath();
-    ctx.moveTo(200, 160);
-    ctx.lineTo(400, 260);
+    ctx.moveTo(10, 260);              //1st
+    ctx.lineTo(370, 260);
     ctx.strokeStyle = 'gray';
     ctx.stroke();
 
-   ctx.beginPath();
-ctx.arc(400,260, 10, 0, 2 * Math.PI, false);
+
+ ctx.beginPath();
+ctx.arc(370,260, 10, 0, 2 * Math.PI, false);
         ctx.lineWidth = 5;
         ctx.fillStyle = 'black';
    ctx.fill();
 
+   ctx.beginPath();
+    ctx.moveTo(370, 260);
+    ctx.lineTo(240, 260);               //2nd
+    ctx.strokeStyle = 'gray';
+    ctx.stroke();
+
+ ctx.beginPath();
+ctx.arc(240,260, 10, 0, 2 * Math.PI, false);
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+   ctx.beginPath();
+    ctx.moveTo(240, 260);
+    ctx.lineTo(100, 260);               //3rd
+    ctx.strokeStyle = 'gray';
+    ctx.stroke();
+
+     ctx.beginPath();
+ctx.arc(100,260, 10, 0, 2 * Math.PI, false);
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
 
     ctx.beginPath();
-    ctx.moveTo(200, 160);
-    ctx.quadraticCurveTo(230, 200, 250, 120);
+    ctx.moveTo(10, 260);
+    ctx.quadraticCurveTo(230, 200, 250, 120);    //4th
     ctx.strokeStyle = 'gray';
     ctx.stroke();
 
 
 ctx.beginPath();
-ctx.arc(200,160, 10, 0, 2 * Math.PI, false);
+ctx.arc(10,260, 10, 0, 2 * Math.PI, false);
         ctx.lineWidth = 5;
         ctx.fillStyle = 'black';
    ctx.fill();
 
-
     ctx.beginPath();
     ctx.moveTo(250, 120);
-    ctx.bezierCurveTo(290, -40, 300, 200, 400, 150);
+    ctx.bezierCurveTo(290, -40, 300, 200, 400, 150);  //7th
     ctx.strokeStyle = 'gray';
     ctx.stroke();
 
@@ -190,10 +233,38 @@ ctx.arc(250,120, 10, 0, 2 * Math.PI, false);
         ctx.fillStyle = 'black';
    ctx.fill();
 
+ctx.beginPath();
+ctx.arc(200,180, 10, 0, 2 * Math.PI, false);   //6th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+ctx.beginPath();
+ctx.arc(100,230, 10, 0, 2 * Math.PI, false);   //5th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+
+ctx.beginPath();
+ctx.arc(290,80, 10, 0, 2 * Math.PI, false);   //8th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+ 
+ctx.beginPath();
+ctx.arc(330,140, 10, 0, 2 * Math.PI, false);   //9th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+//done
     ctx.beginPath();
     ctx.moveTo(400, 150);
-    ctx.lineTo(400, 260);
-    ctx.strokeStyle = 'gray';
+    ctx.lineTo(370, 260);
+    ctx.strokeStyle = 'gray';        //10th
     ctx.stroke();
 
 
@@ -206,20 +277,20 @@ ctx.arc(400,150, 10, 0, 2 * Math.PI, false);
     // draw the tracking rectangle
     var xy;
 
-    if (sliderValue < 25) {
+        if (sliderValue < 25) {
         var percent = sliderValue / 24;
         xy = getLineXYatPercent({
-            x: 400,
+            x: 370,
             y: 260
         }, {
-            x: 200,
-            y: 160
+            x: 10,
+            y: 260
         }, percent);
     } else if (sliderValue < 50) {
         var percent = (sliderValue - 25) / 24
         xy = getQuadraticBezierXYatPercent({
-            x: 200,
-            y: 160
+            x: 35,
+            y: 260
         }, {
             x: 230,
             y: 200
@@ -248,7 +319,7 @@ ctx.arc(400,150, 10, 0, 2 * Math.PI, false);
             x: 400,
             y: 150
         }, {
-            x: 400,
+            x: 370,
             y: 260
         }, percent);
     }
@@ -258,25 +329,9 @@ ctx.arc(400,150, 10, 0, 2 * Math.PI, false);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // draw tracking rect at xy
 function drawRect(point, color) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "cyan";
     ctx.strokeStyle = "black";
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -336,15 +391,4 @@ function CubicN(pct, a, b, c, d) {
     return a + (-a * 3 + pct * (3 * a - a * pct)) * pct + (3 * b + pct * (-6 * b + b * 3 * pct)) * pct + (c * 3 - c * 3 * pct) * t2 + d * t3;
 }
 
-
- 
-
-
-
-
 });
-
-
-
-
-

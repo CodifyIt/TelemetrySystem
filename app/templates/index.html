@@ -12,18 +12,22 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cc.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/batter.css') }}">
 
    <script type = "text/javascript" src = "{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.final-countdown.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/kinetic.js') }}"></script>
     <script src="{{ url_for('static', filename='js/temp_humid.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+
+
+
 	<title>TELEMETRY SYSTEM</title>
 </head>
 
 
 <body>
-<br>
+
 <div class="container">
 <div class="row">
  
@@ -35,13 +39,13 @@
 
     </div>
 
-<div class ="col-xs-6">
+<div class ="col-xs-7">
     <span>
-     <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TELEMETRY SYSTEM</h3>
+     <h3>TELEMETRY SYSTEM</h3>
     </span>
     </div>
 
-    <div class ="col-xs-3">
+    <div class ="col-xs-2">
     <span>
     <button type="checkbox" name="start_stop" id="start_stop" class="btn" onclick="sam();star();myFunction();avant();s();">
      Start 
@@ -52,28 +56,81 @@
 </div>
 <div class="row">
        <div class ="col-xs-2">
-   <table>    
+   <table  style="border-collapse: collapse;">    
       
       <tbody>
-        <tr><td>Temperature: <inline id="temp">0</inline></td></tr>
-            <tr><td>Humidity: <inline id="humid"></inline></td></tr>
-            <tr><td>Gas: <inline id="gas"></inline></td></tr>
-            <tr><td>Latitude: <inline id="lat"></inline></td></tr>
-            <tr><td>Longitude: <inline id="lon"></inline></td></tr>
-            <tr><td>Speed: <inline id="speed"></inline></td></tr>
-            <tr><td>Checkpoint No.: <inline id="q8">1</inline></td></tr>
-            <tr><td>Distance Travelled: <inline id="q9"></inline></td></tr>
+        <tr>
+          <th>Temperature</th>
+          <th>Humidity</th>
+        </tr>
+        <tr>
+          <td id="temp">0℃</td>
+          <td id="humid">0%</td>
+        </tr>
+        <tr>
+          <th>Gas</th>
+          <th>Speed</th>
+        </tr>
+        <tr>
+          <td id="gas">0</td>
+          <td id="speed">0Km/h</td>
+        </tr>
+        <tr>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+        <tr>
+          <td id="lat">0.00</td>
+          <td id="lon">0.00</td>
+        </tr>
       </tbody>
     </table>
 </div>
-    <div class ="col-xs-7">
-
+    <div class ="col-xs-8">
         <script type="text/javascript" src="{{ url_for('static', filename='js/draw.js') }}"></script>
-   <canvas id="canvas" width=450 height=400></canvas>
+
+   <canvas id="canvas" width=450 height=270></canvas>
+   <br>
+<span id="s1">Total Laps : <inline id="ts12">0</inline></span>
    
 </div>
-<div class="col-xs-3">
-   <img class="img-responsive" src="{{ url_for('static', filename='img/top.jpg') }}" alt="Renault">
+<div class="col-xs-2">
+  <img class="img-responsive" src="{{ url_for('static', filename='img/top.jpg') }}" style='height: 100%; width: 100%; object-fit: contain' alt="Renault">
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+    <table>
+    
+       <tbody>
+        <tr>
+          <th scope="row"> Checkpoint 1 </th>
+          <th scope="row"> Checkpoint 2 </th>
+          <th scope="row"> Checkpoint 3 </th>
+          <th scope="row"> Checkpoint 4 </th>
+          <th scope="row"> Checkpoint 5 </th>
+          <th scope="row"> Checkpoint 6 </th>
+          <th scope="row"> Checkpoint 7 </th>
+          <th scope="row"> Checkpoint 8 </th>
+          <th scope="row"> Checkpoint 9 </th>
+          <th scope="row"> Checkpoint 10 </th>
+          </tr>
+        <tr id="c_time">
+          <td><inline id="ps1">00:00</inline></td>
+          <td><inline id="ps2">00:00</inline></td>
+          <td><inline id="ps3">00:00</inline></td>
+          <td><inline id="ps4">00:00</inline></td>
+          <td><inline id="ps5">00:00</inline></td>
+          <td><inline id="ps6">00:00</inline></td>
+          <td><inline id="ps7">00:00</inline></td>
+          <td><inline id="ps8">00:00</inline></td>
+          <td><inline id="ps9">00:00</inline></td>
+          <td><inline id="ps10">00:00</inline></td>
+        </tr>
+    </tbody>
+</table>
 </div>
 </div>
 </div>
@@ -81,59 +138,69 @@
  <div class="container">
     <div class="row">
       <div class="col-xs-4">
-    <div id="tester" style="width:100%;height:280px;"></div>
-  
+    <div id="tester" style="width:100%;height:220px;"></div>
     <script  src="{{ url_for('static', filename='js/plot.js') }}"></script>
+  
 </div>
 
 <div class="col-xs-4">
-<span>Total Laps : <inline id="ts12">0</inline></span>
-<br>
-<span id="ts8">Total Time : <inline id="hrs">00</inline>:<inline id="min">00</inline>:<inline id="sec">00</inline></span>
-<br><br>
-<table>
-    
-       <tbody>
+<table style="border-collapse: collapse;table-layout: fixed; width: 100%;">
+     <tbody>
+      <tr>
+        <th id="row1" style="width: 40%;">Total Time:</th>
+        <td id="row1" colspan="3" ><inline id="hrs">00</inline>:<inline id="min">00</inline>:<inline id="sec">00</inline></th>
+      </tr>
+             <tr>
+        <th id="row1" style="width: 40%;">Rover Temp:</th>
+        <td id="row1" colspan="3" ><inline id="r_temp">0℃</inline></th>
+      </tr>
         <tr>
-          <th scope="row">Checkpoint 1</th>
-          <td><inline id="ts1">00:00</inline></td>
-        
-        </tr>
-        <tr>
-          <th scope="row">Checkpoint 2</th>
-          <td><inline id="ts2">00:00</inline></td>
-        </tr>
-        <tr>
-          <th scope="row">Checkpoint 3</th>
-          <td><inline id="ts3">00:00</inline></td>
-        </tr><tr>
-          <th scope="row">Checkpoint 4</th>
-          <td><inline id="ts4">00:00</inline></td>
-        </tr>
-    </tbody>
+        <th id="row1" style="width: 40%;">Checkpoint: </th>
+        <td id="row1" colspan="3" ><inline id="q8">0</inline></th>
+      </tr>
+      <tr>
+        <th rowspan="2" id="row1" style="width: 40%;">Rock's Color:</th>
+          <td >R</td>
+          <td >G</td>
+          <td >B</td>
+      </tr>
+      <tr id="row1">
+            <td id="cr" >0</td>
+            <td id="cg" >0</td>
+            <td id="cb" >0</td>
+      </tr> 
+       <tr>
+        <th id="row1" style="width: 40%;">Distance:</th>
+        <td id="row1" colspan="3" ><inline id="q9" style="text-align: left;">0</inline></th>
+      </tr>
+
+      
+      </tbody>
 </table>
-
 </div>
 
-<br>
 <div class="col-xs-4">
-<span id="ts9">Rover Health Data : Temperature <inline id="r_temp"></inline></span>
-<br><br>
 <div class="row">
     <div class="col-xs-6">
-          <div data-percent="59" id="sama"></div>
-  
-    <script  src="{{ url_for('static', filename='js/indexs.js') }}"></script>
+          
+  <div class="svg">
+    <svg id="battery" width="200" height="200" class="chart" data-percent="50">
+      <circle id="bgcircle" class="bgcircle" cx="95" cy="95" r="85" transform="rotate(-90, 95, 95)"/>
+      <circle id="circle" class="circle" cx="95" cy="95" r="85" transform="rotate(-90, 95, 95)"/>
+      <text class="text" id="text" text-anchor="middle" x="95" y="105"></text>
+    </svg>
+</div>
+ <script  src="{{ url_for('static', filename='js/indexs1.js') }}"></script>
     </div>
     <div class="col-xs-6">
 
-<canvas id="mycanvas" width="100" height="100"></canvas>
+<canvas id="mycanvas" width="170" height="170"></canvas>
+<script type="text/javascript" src="{{ url_for('static', filename='js/circle_ki.js') }}"></script>
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/circle_ki.js') }}"></script>
+
 </div>
 </div>
 <br>
-<span id="ts10">Color of Rocks : <inline id="cr"></inline><inline id="cg"></inline><inline id="cb"></inline></span>
 </div>
 </div>
 </div>
