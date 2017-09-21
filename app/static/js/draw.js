@@ -58,10 +58,10 @@ window.avant = function(){
 window.s = function(){
 
 
-var a=setInterval(function()
-{
-    b+=.01;
-},10);
+    var a=setInterval(function()
+    {
+        b+=.01;
+    },10);
 
 }
 var coun=0;
