@@ -41,4 +41,4 @@ $(document).ready(setInterval(function(){
             $("#battery").attr('data-percent',Math.floor(Math.random()*100))
         }
     });
-},180000));
+},2000));
