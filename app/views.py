@@ -40,19 +40,22 @@ def data():
 	print lon, lat, speed, color_r, color_g, color_b, gas
 	temp = ""
 	humidity = ""
-	user = Car.query.order_by(desc(Car.car_id)).first()
-	if user==None or str(user.longitude) != str(lon) or str(user.latitude) != str(lat):
-		par = {'lat':float(lat),'lon':float(lon),'units':'metric','APPID':'3eb103db203fb263e200a7a1d09488d9'}
-		r = requests.get("https://api.openweathermap.org/data/2.5/weather",params=par)
-		detail = json.loads(r.text)
-		temp = detail['main']['temp']
-		humidity = detail['main']['humidity']
-		data = Car(lon, lat, speed, color_r, color_g, color_b, temp,humidity, gas)
-		db.session.add(data)
-		db.session.commit()
-	else:
-		temp = str(user.temp)
-		humidity = str(user.humidity)
+	r = requests.get("https://api.openweathermap.org/data/2.5/weather",params=par)
+	temp = detail['main']['temp']
+	humidity = detail['main']['humidity']
+	# user = Car.query.order_by(desc(Car.car_id)).first()
+	# if user==None or str(user.longitude) != str(lon) or str(user.latitude) != str(lat):
+	# 	par = {'lat':float(lat),'lon':float(lon),'units':'metric','APPID':'3eb103db203fb263e200a7a1d09488d9'}
+	# 	r = requests.get("https://api.openweathermap.org/data/2.5/weather",params=par)
+	# 	detail = json.loads(r.text)
+	# 	temp = detail['main']['temp']
+	# 	humidity = detail['main']['humidity']
+	# 	data = Car(lon, lat, speed, color_r, color_g, color_b, temp,humidity, gas)
+	# 	db.session.add(data)
+	# 	db.session.commit()
+	# else:
+	# 	temp = str(user.temp)
+	# 	humidity = str(user.humidity)
 	print "temp : ",temp,"C"
 	print "humidity ",humidity,"%"
 	return jsonify(temp=temp,humid=humidity)
