@@ -141,6 +141,6 @@ def export_records():
 def handson_table():
     return excel.make_response_from_tables(db.session, [Car], 'handsontable.html')
 
-@app.route('/tryData')
+@app.route('/tryData', methods=['POST','GET'])
 def tryData():
 	return "Got the following data : " + str(request.data)
