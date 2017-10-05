@@ -1,44 +1,17 @@
-*{
-  margin:0;
-  padding:0;
-}
-.circle {
-  fill: transparent;
-  stroke: #00e6e6;
-  stroke-width: 10;
-  stroke-dasharray: 534;
-  stroke-linecap: round; 
-  -webkit-transition: stroke-dashoffset 5s;
-  margin-top: 0;
-}
-.bgcircle {
-  fill: transparent;
-  stroke: black;
-  stroke-width: 10;
-}
-.svg{
-  -webkit-transform:translate(10px, 10px)scale(1); 
-/* change the size by adjusting scale, move by adjusting translate. Moves everything including font */
-}
-.text{
-  font-size: 30px;
-  font-family: 'helvetica';
-  fill:#00e6e6;
+p {
+  font-size: 100%;
+  color: #9B9B9B;
+  margin: 1em 0;
 }
 
+.chargingsymbol {
 
-/* html stuff */
-*{
-  margin: 0;
-  padding: 0;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
 }
-#enter{
-  background-color: #00e6e6;
-  padding: 5px;
-  width:180px;
-  font-family:'helvetica';
-  margin-left:10px;
-  margin-top:10px;
-  text-align:center;
-  color:white;
+
+.batterylevel {
+  transform-origin: 83px 277px;
+  transform: scaleY(0); 
+  transition: transform 300ms ease-in;
 }

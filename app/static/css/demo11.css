@@ -8,11 +8,56 @@ body {
 	background-color: rgba(0,0,0,0.8);	
 	background-position: center center;
 	background-repeat: repeat;
+	  font-family: 'Gruppo', cursive;
+
 	background-size: cover;	
-	font-family: 'Raleway', 'Arial', sans-serif;
+	/*overflow: hidden;*/
 }
+#o1{
+  font-family: 'Gruppo', cursive;
 
+}
+#a1
+{
+margin-top: 16px;
+  font-family: 'Gruppo', cursive;
+font-weight: bold;
+}
+#a2
+{
+top: 12%;	
+  font-family: 'Gruppo', cursive;
+font-weight: bold;
+}
+#a3
+{
+margin-top: -100px;
+margin-left: -145px;
+  font-family: 'Gruppo', cursive;
+  font-weight: bold;
 
+}
+#a4
+{
+margin-top: -25px;
+margin-left: 155px;	
+  font-family: 'Gruppo', cursive;
+font-weight: bold;
+}
+#hh3{
+	display: inline-block;
+	top: 17px;
+   margin-top: 13px;
+	background-color: #00e6e6;
+	border:2px solid black;
+	color: rgb(0,0,0);
+	 width:30%;
+	 font-family: 'Gruppo',cursive;
+	 font-weight: bolder;
+	 font-size: 27px;
+	 height: 39px;
+
+}
 .canvas {
      border:1px solid red;
     }
@@ -65,26 +110,42 @@ body {
 }
 
 .btn{
-    margin-top: 6px;
+    margin-top: 0px;
 	background-color: #00e6e6;
 	border:2px solid black;
 	color: rgb(0,0,0);
-	 width:80%;
-}
-.btn:hover{
-	text-decoration: none;
-	color: black;
-}
-.btn:visited{
-	color:black;
-}
-.btn:focus{
-	color:black;
-}
-.btn:active{
-	color:black;
-}
+	 width:60%;
+	 font-family: 'Gruppo',cursive;
+	 font-weight: bolder;
+	 font-size: 16px;
 
+}
+.btn1{
+    padding : 5px;
+	background-color: inherit;
+	border:1.5px solid cyan;
+	color: cyan;
+	 width:65%;
+	 font-family: 'Gruppo',cursive;
+	 font-weight: bolder;
+	 font-size: 16px;
+
+}
+.btn2{
+    padding : 5px;
+	background-color:inherit;
+	border:1.5px solid cyan;
+	color: cyan;
+	 width:65%;
+	 font-family: 'Gruppo',cursive;
+	 font-weight: bolder;
+	 font-size: 16px;
+
+}
+#p2
+{
+	display: inline-block;
+}
 .text {
 	color: #ffffff;	
 	font-size: 30px;
@@ -129,11 +190,11 @@ body {
 }
 
 #ts12{
-	color: #ffffff;	
-	font-size: 25px;
+	color: cyan;
 	font-weight: 350;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+	font-weight: bold;
 }
 #s1{
 	color: #ffffff;	
@@ -173,7 +234,7 @@ body {
 #ps1{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
@@ -181,63 +242,63 @@ body {
 #ps2{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps3{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps4{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps5{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps6{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps7{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps8{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps9{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
 }#ps10{
 	color: #fff;	
 	font-size: 20px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
@@ -245,7 +306,7 @@ body {
 #ts2{
 	color: #ffffff;	
 	font-size: 25px;
-	font-weight: 350;	
+	font-weight: bold;	
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
 	
@@ -258,6 +319,10 @@ body {
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 	
+}
+#temp,#humid,#lat,#lon,#gas,#speed,#q9{
+	color:cyan;
+	font-weight: bold;
 }
 #ts6{
 	color: #fff;	

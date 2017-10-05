@@ -10,8 +10,9 @@ body {
   color: #ffffff;
 }
 
+
 table {
-  width: 240px;
+  width: 300px;
   margin: 10px auto;
   height:100px;  
 }
@@ -32,10 +33,35 @@ tr {
  background-color: rgba(255, 255, 255, .1)
   border-bottom: 1px solid #FFF;
   margin-bottom: 5px;
+font-family: 'Gruppo', cursive;
+  font-size: 18px;
+  font-weight: 400;
+  color:#c2c2d6;
 }
  #row1{
   text-align: left;
   font-weight: 300;
+  line-height: 10px;
+    color:#c2c2d6;
+
+}
+#row11{
+  text-align: left;
+  font-weight: 300;
+  line-height: 10px;
+  color:#c2c2d6 ;
+
+}
+#hrs,#min,#sec,#cr,#cg,#cb,#r_temp,#q8,#y1{
+  color:cyan;
+  font-weight: bold;
+}
+
+ #row2{
+  text-align: left;
+  font-weight: 300;
+  line-height: 17px;
+  color:#c2c2d6;
 }
 
 #c_time{

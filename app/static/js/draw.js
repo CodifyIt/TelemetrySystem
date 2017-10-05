@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
@@ -7,12 +7,17 @@ var fps = 20;
 var percent = 0
 var direction = 1;
 var b=0;
+var numc;
+window.numc=0;
 var check = 0;
 var tim = 0;
+var a=undefined;
+var mili=0,seconds=0,minu=0;
 // start the animation
 animate();
-var time,ti,hr,sec,min,distance=0;
-document.getElementById('q9').innerHTML = distance;
+var time,ti,hr,sec,min;
+window.distance = 0;
+document.getElementById('q9').innerHTML = window.distance;
 window.time = undefined;
 window.avant = function(){
     if(window.time == undefined){
@@ -40,7 +45,7 @@ window.avant = function(){
             document.getElementById('min').innerHTML =min;
             }
             if(sec < 10){
-
+                console.log("sasd");
             document.getElementById('sec').innerHTML = '0'+ti;
             }
             else{
@@ -55,7 +60,7 @@ window.avant = function(){
         tim = 0;
     }
 }
-window.s = function(){
+/*window.s = function(){
 
 
     var a=setInterval(function()
@@ -64,12 +69,43 @@ window.s = function(){
     },10);
 
 }
-var coun=0;
+*/
+window.s=function()
+{    
+
+if(window.a==undefined)
+{
+window.numc+=1;
+document.getElementById('hh3').innerHTML=window.numc; 
+window.a=setInterval(function () {
+    b+=.01;
+    },10);
+     document.getElementById('ps1').innerHTML='00:00:00';
+     document.getElementById('ps2').innerHTML='00:00:00';
+     document.getElementById('ps3').innerHTML='00:00:00';
+     document.getElementById('ps4').innerHTML='00:00:00';
+     document.getElementById('ps5').innerHTML='00:00:00';
+     document.getElementById('ps6').innerHTML='00:00:00';
+     document.getElementById('ps7').innerHTML='00:00:00';
+     document.getElementById('ps8').innerHTML='00:00:00';
+     document.getElementById('ps9').innerHTML='00:00:00';
+     document.getElementById('ps10').innerHTML='00:00:00'; 
+}
+else
+{
+    clearInterval(window.a);
+    window.a=undefined;
+    console.log("I worked");
+    percent=0;
+    b=0;
+}
+}
+window.coun=0;
 function animate() {
     
    
-    distance +=1;
-    document.getElementById('q9').innerHTML = distance;
+    window.distance +=1;
+    document.getElementById('q9').innerHTML = window.distance;
     percent += direction;
     if(percent == 4)
     document.getElementById('q8').innerHTML = 1;
@@ -92,42 +128,192 @@ if(percent == 71)
 if(percent == 80)
     document.getElementById('q8').innerHTML = 10;
 
-    if(percent>=17 && percent<=24){
-        document.getElementById('ps3').innerHTML=b.toFixed(2);
+    if(percent==20){
+            ca=b.toFixed(2);
+                mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+        seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+           if(isNaN(minu))
+            minu='0';
+        if(isNaN(seconds))
+            seconds='0';   
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps3').innerHTML=minu+':'+seconds+':'+mili;
     }
-    if(percent>=11 && percent<=16){
-        document.getElementById('ps2').innerHTML=b.toFixed(2);
+    if(percent==13){
+            ca=b.toFixed(2);
+          mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+               if(isNaN(minu))
+            minu='0';
+        if(isNaN(seconds))
+            seconds='0';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps2').innerHTML=minu+':'+seconds+':'+mili;
+
     }
-    if(percent>=4 && percent<=10){
-        document.getElementById('ps1').innerHTML=b.toFixed(2);
-    }
-    if(percent>31 && percent<=38){
-        document.getElementById('ps5').innerHTML=b.toFixed(2);
-        }
-            if(percent>=25 && percent<=31){
-        document.getElementById('ps4').innerHTML=b.toFixed(2);
-    }
-    if(percent>=39 && percent<=45){
-        document.getElementById('ps6').innerHTML=b.toFixed(2);
-    }
-    if(percent>=46 && percent<=60){
-        document.getElementById('ps7').innerHTML=b.toFixed(2);
-    }
-    if(percent>=61 && percent<=70){
-        document.getElementById('ps8').innerHTML=b.toFixed(2);
-        }
-           if(percent>=71 && percent<=79){
-        document.getElementById('ps9').innerHTML=b.toFixed(2);
-    }
-    if(percent>=80 && percent<=100){
-        document.getElementById('ps10').innerHTML=b.toFixed(2);
-    }
-    if(percent==100 ){
+    if(percent==8){
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+             if(isNaN(minu))
+            minu='0';
+        if(isNaN(seconds))
+            seconds='0';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps1').innerHTML=minu+':'+seconds+':'+mili;
         
+    }
+    if(percent==35){
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps5').innerHTML=minu+':'+seconds+':'+mili;
+
+        }
+            if(percent==28){
+                    ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps4').innerHTML=minu+':'+seconds+':'+mili;
         
-        coun+=1;
-        var x=coun;
-        document.getElementById('ts12').innerHTML=x;
+    }
+    if(percent==42){
+ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps6').innerHTML=minu+':'+seconds+':'+mili;
+ 
+    }
+    if(percent==55){
+                ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps7').innerHTML=minu+':'+seconds+':'+mili;
+    }
+    if(percent==65){
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps8').innerHTML=minu+':'+seconds+':'+mili;
+               }
+           if(percent==75){
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps9').innerHTML=minu+':'+seconds+':'+mili;
+            }
+    if(percent==90)
+    {
+    ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps10').innerHTML=minu+':'+seconds+':'+mili;
+       
+    }
+    if(percent==100 ){        
+        window.coun+=1;
+        document.getElementById('ts12').innerHTML=window.coun;
     }
 
     if (percent < 0) {
@@ -150,14 +336,16 @@ if(window.c==undefined)
 window.c=setInterval(function () {
         requestAnimationFrame(animate);
     }, 1000 / fps);
+            document.getElementById('sec').innerHTML = '00';
+                        document.getElementById('hrs').innerHTML ='00'; 
+                                    document.getElementById('min').innerHTML ='00'; 
 }
 else
 {
     clearInterval(window.c);
     window.c=undefined;
     console.log("I worked");
-percent=0;
-b=0
+    percent=0;
 }
 return;
 //console.log("ASd");

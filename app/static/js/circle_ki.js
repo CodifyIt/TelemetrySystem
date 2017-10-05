@@ -35,7 +35,7 @@ function draw(canvas, angle){
     context.arc(centerX,centerY,radius, degreesToRadians(0), degreesToRadians((-1) * angle),false);
     context.closePath();
     context.stroke();
-    context.strokeStyle = 'white';
+    context.strokeStyle = '#c2c2d6';
     context.lineWidth = 1;
     for(var startingAngle=begin; startingAngle < 360;){
         context.beginPath();

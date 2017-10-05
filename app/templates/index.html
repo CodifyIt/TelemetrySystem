@@ -7,19 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--     <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"> -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo11.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cc.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo1.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/batter.css') }}">
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font.css') }}">
    <script type = "text/javascript" src = "{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.final-countdown.js') }}"></script>
+       <script src="{{ url_for('static', filename='js/jquery.final-countdown.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/kinetic.js') }}"></script>
     <script src="{{ url_for('static', filename='js/temp_humid.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
-
 
 
 	<title>TELEMETRY SYSTEM</title>
@@ -33,7 +32,7 @@
  
     <div class ="col-xs-3">
     <span>
-        <h3>Location Parameters</h3>
+        <h3 id="o1">Location Parameters</h3>
      
     </span>
 
@@ -41,16 +40,15 @@
 
 <div class ="col-xs-7">
     <span>
-     <h3>TELEMETRY SYSTEM</h3>
+     <h3 id="o1"><strong>TELEMETRY SYSTEM</strong></h3>
     </span>
     </div>
 
     <div class ="col-xs-2">
-    <span>
-    <button type="checkbox" name="start_stop" id="start_stop" class="btn" onclick="sam();star();myFunction();avant();s();">
+    <button type="checkbox" name="start_stop" id="start_stop" class="btn" onclick="sam();star();sendValues();changeState();avant();s();">
      Start 
     </button>
-    </span>
+    <h4 id="hh3">00</h4>
     </div>
 <br><br>
 </div>
@@ -59,30 +57,43 @@
    <table  style="border-collapse: collapse;">    
       
       <tbody>
-        <tr>
+        <tr id="row2">
           <th>Temperature</th>
           <th>Humidity</th>
         </tr>
-        <tr>
+        <tr id="row2">
           <td id="temp">0℃</td>
           <td id="humid">0%</td>
         </tr>
-        <tr>
+        <tr id="row2">
           <th>Gas</th>
           <th>Speed</th>
         </tr>
-        <tr>
+        <tr id="row2">
           <td id="gas">0</td>
           <td id="speed">0Km/h</td>
         </tr>
-        <tr>
+        <tr id="row2">
           <th>Latitude</th>
           <th>Longitude</th>
         </tr>
-        <tr>
+        <tr id="row2">
           <td id="lat">0.00</td>
           <td id="lon">0.00</td>
         </tr>
+        <tr id="row2">
+          <th>Total Laps</th>
+          <th>Distance</th>
+        </tr>
+
+      <tr id="row2">
+          <td id="ts12">0</td>
+          <td id="q9">0</td>
+       </tr>
+       <tr id="row2">
+         <td style="font-weight: bolder;"><button type="checkbox" name="name1" class="btn1" onclick="window.open('/export');">Download</button></td>
+         <td style="font-weight: bolder;"><button type="checkbox" name="name2" class="btn2" onclick="window.open('/handson_view');">Display</button></td>
+       </tr>
       </tbody>
     </table>
 </div>
@@ -90,9 +101,6 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/draw.js') }}"></script>
 
    <canvas id="canvas" width=450 height=270></canvas>
-   <br>
-<span id="s1">Total Laps : <inline id="ts12">0</inline></span>
-   
 </div>
 <div class="col-xs-2">
   <img class="img-responsive" src="{{ url_for('static', filename='img/top.jpg') }}" style='height: 100%; width: 100%; object-fit: contain' alt="Renault">
@@ -105,6 +113,18 @@
     <table>
     
        <tbody>
+        <tr id="c_time">
+          <td><inline id="ps1"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps2"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps3"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps4"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps5"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps6"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps7"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps8"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps9"><strong>00:00:00</strong></inline></td>
+          <td><inline id="ps10"><strong>00:00:00</strong></inline></td>
+        </tr>
         <tr>
           <th scope="row"> Checkpoint 1 </th>
           <th scope="row"> Checkpoint 2 </th>
@@ -117,18 +137,6 @@
           <th scope="row"> Checkpoint 9 </th>
           <th scope="row"> Checkpoint 10 </th>
           </tr>
-        <tr id="c_time">
-          <td><inline id="ps1">00:00</inline></td>
-          <td><inline id="ps2">00:00</inline></td>
-          <td><inline id="ps3">00:00</inline></td>
-          <td><inline id="ps4">00:00</inline></td>
-          <td><inline id="ps5">00:00</inline></td>
-          <td><inline id="ps6">00:00</inline></td>
-          <td><inline id="ps7">00:00</inline></td>
-          <td><inline id="ps8">00:00</inline></td>
-          <td><inline id="ps9">00:00</inline></td>
-          <td><inline id="ps10">00:00</inline></td>
-        </tr>
     </tbody>
 </table>
 </div>
@@ -159,22 +167,20 @@
         <td id="row1" colspan="3" ><inline id="q8">0</inline></th>
       </tr>
       <tr>
+        <th id="row1" style="width: 40%;">Location: </th>
+        <td id="row1" colspan="3" ><inline id="y1">None</inline></th>
+      </tr>
+      <tr>
         <th rowspan="2" id="row1" style="width: 40%;">Rock's Color:</th>
-          <td >R</td>
-          <td >G</td>
-          <td >B</td>
+          <td style="color:#c2c2e6">R</td>
+          <td style="color:#c2c2e6">G</td>
+          <td style="color:#c2c2e6">B</td>
       </tr>
       <tr id="row1">
             <td id="cr" >0</td>
             <td id="cg" >0</td>
             <td id="cb" >0</td>
-      </tr> 
-       <tr>
-        <th id="row1" style="width: 40%;">Distance:</th>
-        <td id="row1" colspan="3" ><inline id="q9" style="text-align: left;">0</inline></th>
-      </tr>
-
-      
+      </tr>       
       </tbody>
 </table>
 </div>
@@ -182,54 +188,30 @@
 <div class="col-xs-4">
 <div class="row">
     <div class="col-xs-6">
-          
-  <div class="svg">
-    <svg id="battery" width="200" height="200" class="chart" data-percent="50">
-      <circle id="bgcircle" class="bgcircle" cx="95" cy="95" r="85" transform="rotate(-90, 95, 95)"/>
-      <circle id="circle" class="circle" cx="95" cy="95" r="85" transform="rotate(-90, 95, 95)"/>
-      <text class="text" id="text" text-anchor="middle" x="95" y="105"></text>
-    </svg>
-</div>
+<br>
+<svg width="100" height="100" viewBox="0 0 165 295" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M52 22H0v273h165V22h-52V0H52v22zM8 30h149v257H8V30zM60 8h45v14H60V8z" fill="#9B9B9B" />
+    <path class="batterylevel" fill="cyan" d="M17 40h131v238H17z" />
+    <path class="chargingsymbol" fill="#9B9B9B" d="M111.017 88.128l-18.51 56.968 20.637 6.706-58.904 65.154 19.077-58.713-20.894-6.79" />
+  </g>
+</svg>
+<p>No Battery Info :(</p>
  <script  src="{{ url_for('static', filename='js/indexs1.js') }}"></script>
     </div>
     <div class="col-xs-6">
-
-<canvas id="mycanvas" width="170" height="170"></canvas>
+<h5 id="a1">Up</h5>
+<canvas id="mycanvas" width="120" height="120"></canvas>
 <script type="text/javascript" src="{{ url_for('static', filename='js/circle_ki.js') }}"></script>
-
+<h5 id="a2">Down</h5>
+<h5 id="a3">Left</h5>
+<h5 id="a4">Right</h5>
 
 </div>
 </div>
-<br>
 </div>
 </div>
 </div>
-
-<script type="text/javascript">  
-    function star() {
-        'use strict';
-        
-    	$('.countdown').final_countdown({
-            'start': 1362139200,
-            'end': 1388461320,
-            'now': 1387461319        
-        });
-    }
-    function sam()
-    {
-    sm();
-    }
-    function myFunction() {
-        var change = document.getElementById("start_stop");
-        if (change.innerHTML == "Stop")
-        {
-            change.innerHTML = "Start";
-        }
-        else 
-          change.innerHTML="Stop";
-
-    }
-</script>
-
+    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
 </body>
 </html>

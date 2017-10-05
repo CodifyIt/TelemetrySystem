@@ -1,9 +1,11 @@
 function val(){
 	return new Date(new Date()).toString().split(' ')[4];
 }
-var xx=[val()];
-var yy=[0];
-	TESTER = document.getElementById('tester');
+var xx=[0];
+var yy=[5];
+TESTER = document.getElementById('tester');
+Plotly.purge(TESTER);
+graph();
 function graph(){
 	Plotly.plot( TESTER, [{
 	    x: xx,
