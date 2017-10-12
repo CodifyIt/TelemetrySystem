@@ -5,37 +5,30 @@ $(document).ready(setInterval(function(){
         contentType: 'application/json',
         success: function(data){
             if(data.res == 'yes'){
-                if(String(data.temp) != String('un')){
+                change(data);
+                if(String(data.temp) != String('-1')){
                     $("#temp").html(data.temp+"℃");
                     window.grph(data.temp);
                 }
-                if(String(data.humid) != String('un')){
+                if(String(data.humid) != String('-1')){
                     $("#humid").html(data.humid+"%");
                 }
-                if(String(data.gas) != String('un')){
+                if(String(data.gas) != String('-1')){
                     $("#gas").html(data.gas);
                 }
-                if(String(data.lon) != String('un')){
+                if(String(data.lon) != String('-1')){
                     $("#lon").html(data.lon);
                 }
-                if(String(data.lat) != String('un')){
+                if(String(data.lat) != String('-1')){
                     $("#lat").html(data.lat);
                 }
-                if(String(data.speed) != String('un')){
+                if(String(data.speed) != String('-1')){
                     $("#speed").html(data.speed);
                 }
-                if(String(data.cr) != String('un')){
-                    $("#cr").html(data.cr);
-                }
-                if(String(data.cg) != String('un')){
-                    $("#cg").html(data.cg);
-                }
-                if(String(data.cb) != String('un')){
-                    $("#cb").html(data.cb);
-                }
-                if(String(data.rt) != String('un')){
-                    $("#r_temp").html(data.rt+"℃");
-                }
+                $("#cr").html(data.cr);
+                $("#cg").html(data.cg);
+                $("#cb").html(data.cb);
+                $("#r_temp").html(data.rt+"℃");
                 // if(data.bat != 'un'){
                 //     $("#battery").attr('data-percent',Math.floor(Math.random()*100))
                 // }

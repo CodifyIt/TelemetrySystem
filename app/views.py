@@ -10,6 +10,7 @@ import flask_excel as excel
 import requests
 from itertools import cycle
 import string
+from sqlalchemy import func
 from app.models import *
 
 @app.route('/' )
@@ -17,92 +18,82 @@ def index():
 	return render_template("index.html")
 @app.route('/data',methods=['POST','GET'])
 def data():
-	js_obj = {}
-	if(request.method=="GET"):			
-		js_obj['lon'] = request.args.get('lon')
-		js_obj['lat'] = request.args.get('lat')
-		js_obj['speed'] = request.args.get('speed')
-		js_obj['c_r'] = request.args.get('c_r')
-		js_obj['c_g'] = request.args.get('c_g')
-		js_obj['c_b'] = request.args.get('c_b')
-		js_obj['gas'] = request.args.get('gas')
-		print "I was get"
-	else:
-		js_obj = request.data
-		js_obj = json.loads(js_obj)
-	 	print "1st : ",request.data
-		print "I was post"
-	try:
-		lon = str(js_obj['lon'])
-	except KeyError:
-		lon='un'
-	try:
-		lat = str(js_obj['lat'])
-	except KeyError:
-		lat='un'
-	try:
-		speed = str(js_obj['speed'])
-	except KeyError:
-		speed='un'
-	try:
-		color_r = js_obj['c_r']
-	except KeyError:
-		color_r='un'
-	try:
-		color_g = js_obj['c_g']
-	except KeyError:
-		color_g='un'
-	try:
-		color_b = js_obj['c_b']
-	except KeyError:
-		color_b='un'
-	try:
-		gas = str(js_obj['gas'])
-	except KeyError:
-		gas='un'
-	try:
-		rt = js_obj['r_temp']
-		print "rt",js_obj['r_temp']
-	except KeyError:
-		rt='un'
-	try:
-		bat = js_obj['bat']
-	except KeyError:
-		bat='un'
 	temp = "un"
 	humidity = "un"
 	location = 'un'
-	if lat!='un' and lon!='un':
-		par = {'lat':float(lat),'lon':float(lon),'units':'metric','APPID':'3eb103db203fb263e200a7a1d09488d9'}
-		r = requests.get("https://api.openweathermap.org/data/2.5/weather",params=par)
-		detail = json.loads(r.text)
-		temp = detail['main']['temp']
-		humidity = detail['main']['humidity']
-		latlong = ""+str(lat)+","+str(lon)
-		par = {'latlng':latlong, 'key' : 'AIzaSyA4Uu7BQ56PUvaAvZ9JtHXN0t3WiwTNLhY '} 
-		r = requests.get("https://maps.googleapis.com/maps/api/geocode/json",params=par)
-		detail = json.loads(r.text)
-		location = detail['results'][0]['address_components'][1]["long_name"] +\
-		 "," + detail['results'][0]['address_components'][2]["long_name"]+\
-		 ","+detail['results'][0]['address_components'][4]["short_name"]
-		print "temp : ",temp,"C"
-		print "humidity ",humidity,"%"
-	data = Parameters(temp,humidity,gas,lon,lat,speed,color_r,color_g,color_b,rt,bat,location)
-	db.session.add(data)
-	db.session.commit()
+	if request.method == 'POST':	
+		js_obj = {}
+		js_obj = request.data
+		js_obj = json.loads(js_obj)
+		try:
+			lon = str(js_obj['lon'])
+		except KeyError:
+			lon='-1'
+		try:
+			lat = str(js_obj['lat'])
+		except KeyError:
+			lat='-1'
+		try:
+			speed = str(js_obj['speed'])
+		except KeyError:
+			speed='-1'
+		try:
+			color_r = js_obj['c_r']
+		except KeyError:
+			color_r='127'
+		try:
+			color_g = js_obj['c_g']
+		except KeyError:
+			color_g='127'
+		try:
+			color_b = js_obj['r_b']
+		except KeyError:
+			color_b='127'
+		try:
+			gas = str(js_obj['gas'])
+		except KeyError:
+			gas='-1'
+		try:
+			rt = js_obj['r_temp']
+		except KeyError:
+			rt='20'
+		try:
+			bat = js_obj['bat']
+		except KeyError:
+			bat='50'
+		if lat!='-1' and lon!='-1':
+			par = {'lat':float(lat),'lon':float(lon),'units':'metric','APPID':'3eb103db203fb263e200a7a1d09488d9'}
+			r = requests.get("https://api.openweathermap.org/data/2.5/weather",params=par)
+			detail = json.loads(r.text)
+			temp = detail['main']['temp']
+			humidity = detail['main']['humidity']
+			latlong = ""+str(lat)+","+str(lon)
+			par = {'latlng':latlong, 'key' : 'AIzaSyA4Uu7BQ56PUvaAvZ9JtHXN0t3WiwTNLhY '} 
+			r = requests.get("https://maps.googleapis.com/maps/api/geocode/json",params=par)
+			detail = json.loads(r.text)
+			location = detail['results'][0]['address_components'][1]["long_name"] +\
+			 "," + detail['results'][0]['address_components'][2]["long_name"]+\
+			 ","+detail['results'][0]['address_components'][4]["short_name"]
+			print "temp : ",temp,"C"
+			print "humidity ",humidity,"%"
+		data = Parameters(temp,humidity,gas,lon,lat,speed,color_r,color_g,color_b,rt,bat,location)
+		db.session.add(data)
+		db.session.commit()
 	return jsonify(temp=temp,humid=humidity,location=location)
 
 @app.route('/getData',methods=['GET'])
 def getData():
-	result = Parameters.query.first()
-	if(result == None):
+	rows = db.session.query(func.count(Parameters.id)).scalar()
+	if(rows == 0):
 		return jsonify(res="no")
+	result = Parameters.query.first()
 	obj = jsonify(res="yes",temp=result.temp,humid=result.humid,\
 		gas=result.gas,lon=result.lon,lat=result.lat,speed=result.speed,\
 		cr=result.cr,cg=result.cg,cb=result.cb,rt=result.rt,\
 		bat=result.bat,loca=result.loca)
-	db.session.delete(result)
-	db.session.commit()
+	if rows != 1:
+		db.session.delete(result)
+		db.session.commit()
 	return obj
 
 @app.route('/store', methods=['POST'])
@@ -141,6 +132,28 @@ def export_records():
 def handson_table():
     return excel.make_response_from_tables(db.session, [Car], 'handsontable.html')
 
+@app.route("/mapview", methods=['GET'])
+def mapview():
+    return render_template('mapview.html')
 @app.route('/tryData', methods=['POST','GET'])
 def tryData():
-	return "Got the following data : " + str(request.data)
+	if request.method == 'POST':
+		jo = json.loads(request.data)
+		lat = 'u'
+		lon = 'u'
+		try:
+			lat = str(jo['lat'])
+		except KeyError:
+			lat = 'err'
+		try:
+			lon = str(jo['lon'])
+		except KeyError:
+			lon = "err"
+		data = Parameters('u','u','u',lon,lat,'u','u','u','u','u','u','POST')
+		db.session.add(data)
+		db.session.commit()
+		return "[POST REQ] lat : " + lat + "  lon : " + lon
+	data = Parameters('u','u','u','u','u','u','u','u','u','u','u','GET')
+	db.session.add(data)
+	db.session.commit()
+	return "[GET] lat : " + str(request.args.get('lat')) + "  lon : " + str(request.args.get('lon')) 

@@ -121,7 +121,7 @@ font-weight: bold;
 
 }
 .btn1{
-    padding : 5px;
+	    margin-top: 0px;
 	background-color: inherit;
 	border:1.5px solid cyan;
 	color: cyan;
@@ -132,7 +132,8 @@ font-weight: bold;
 
 }
 .btn2{
-    padding : 5px;
+	display: inline-block;
+    margin-top: 0px;
 	background-color:inherit;
 	border:1.5px solid cyan;
 	color: cyan;
@@ -145,6 +146,7 @@ font-weight: bold;
 #p2
 {
 	display: inline-block;
+	font-weight:bolder;
 }
 .text {
 	color: #ffffff;	

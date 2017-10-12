@@ -94,10 +94,15 @@
          <td style="font-weight: bolder;"><button type="checkbox" name="name1" class="btn1" onclick="window.open('/export');">Download</button></td>
          <td style="font-weight: bolder;"><button type="checkbox" name="name2" class="btn2" onclick="window.open('/handson_view');">Display</button></td>
        </tr>
+       <tr id="row2">
+         <td style="font-weight: bolder;"><button type="checkbox" name="name1" class="btn1" onclick="window.pause();">Pause</button></td>
+         <td style="font-weight: bolder;"><button type="checkbox" name="name2" class="btn2" onclick="window.resume();">Resume</button></td>
+       </tr>
       </tbody>
     </table>
 </div>
-    <div class ="col-xs-8">
+<div class="col-xs-1"></div>
+    <div class ="col-xs-7" onclick="window.open('/mapview');">
         <script type="text/javascript" src="{{ url_for('static', filename='js/draw.js') }}"></script>
 
    <canvas id="canvas" width=450 height=270></canvas>

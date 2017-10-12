@@ -1,16 +1,22 @@
 $(document).ready(function() {
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-
+   var ca; 
 // set starting values
-var fps = 20;
+var speed=20;
+var fps = 2*speed;
 var percent = 0
 var direction = 1;
+var chang;
+window.chang=0;
 var b=0;
+var cc; 
 var numc;
 window.numc=0;
 var check = 0;
 var tim = 0;
+var saka;
+window.saka=undefined;
 var a=undefined;
 var mili=0,seconds=0,minu=0;
 // start the animation
@@ -45,7 +51,6 @@ window.avant = function(){
             document.getElementById('min').innerHTML =min;
             }
             if(sec < 10){
-                console.log("sasd");
             document.getElementById('sec').innerHTML = '0'+ti;
             }
             else{
@@ -95,40 +100,84 @@ else
 {
     clearInterval(window.a);
     window.a=undefined;
-    console.log("I worked");
     percent=0;
     b=0;
 }
 }
 window.coun=0;
 function animate() {
-    
-   
-    window.distance +=1;
-    document.getElementById('q9').innerHTML = window.distance;
-    percent += direction;
-    if(percent == 4)
-    document.getElementById('q8').innerHTML = 1;
-if(percent == 11)
-    document.getElementById('q8').innerHTML = 2;
-if(percent == 17)
-    document.getElementById('q8').innerHTML = 3;
-if(percent == 25)
-    document.getElementById('q8').innerHTML = 4;
-if(percent == 32)
-    document.getElementById('q8').innerHTML = 5;
-if(percent == 39)
-    document.getElementById('q8').innerHTML = 6;
-if(percent == 46)
-    document.getElementById('q8').innerHTML = 7;
-if(percent == 61)
-    document.getElementById('q8').innerHTML = 8;
-if(percent == 71)
-    document.getElementById('q8').innerHTML = 9;
-if(percent == 80)
-    document.getElementById('q8').innerHTML = 10;
 
-    if(percent==20){
+    window.distance +=.5;
+    if(window.chang%speed==0)
+    document.getElementById('q9').innerHTML = window.distance;
+    percent += .1;
+    window.chang++;
+  var c=percent.toFixed(0);
+console.log(c);
+    if(c == 4)
+    document.getElementById('q8').innerHTML = 1;
+if(c == 11)
+    document.getElementById('q8').innerHTML = 2;
+if(c== 17)
+    document.getElementById('q8').innerHTML = 3;
+if(c == 25)
+    document.getElementById('q8').innerHTML = 4;
+if(c== 32)
+    document.getElementById('q8').innerHTML = 5;
+if(c == 39)
+    document.getElementById('q8').innerHTML = 6;
+if(c == 46)
+    document.getElementById('q8').innerHTML = 7;
+if(c == 61)
+    document.getElementById('q8').innerHTML = 8;
+if(c == 71)
+    document.getElementById('q8').innerHTML = 9;
+if(c == 80)
+    document.getElementById('q8').innerHTML = 10;
+   
+    if(c==8)
+    {
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+             if(isNaN(minu))
+            minu='0';
+        if(isNaN(seconds))
+            seconds='0';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps1').innerHTML=minu+':'+seconds+':'+mili;
+    }  
+    if(c==13)
+    {
+
+            ca=b.toFixed(2);
+          mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+               if(isNaN(minu))
+            minu='0';
+        if(isNaN(seconds))
+            seconds='0';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+        document.getElementById('ps2').innerHTML=minu+':'+seconds+':'+mili;
+    }
+      if(c==20)
+    {
             ca=b.toFixed(2);
                 mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
@@ -147,66 +196,8 @@ if(percent == 80)
         seconds='0'+seconds;    
         document.getElementById('ps3').innerHTML=minu+':'+seconds+':'+mili;
     }
-    if(percent==13){
-            ca=b.toFixed(2);
-          mili=(ca-parseInt(ca))*100;
-            mili=mili.toFixed(0);
-            seconds=parseInt(ca);
-            minu = Math.floor(seconds/60);
-            seconds -= minu*60;
-               if(isNaN(minu))
-            minu='0';
-        if(isNaN(seconds))
-            seconds='0';
-        if(minu<10)
-        minu='0'+minu;
-          if(mili<10)
-        mili='0'+mili;
-          if(seconds<10)
-        seconds='0'+seconds;    
-        document.getElementById('ps2').innerHTML=minu+':'+seconds+':'+mili;
-
-    }
-    if(percent==8){
-        ca=b.toFixed(2);
-            mili=(ca-parseInt(ca))*100;
-            mili=mili.toFixed(0);
-            seconds=parseInt(ca);
-            minu = Math.floor(seconds/60);
-            seconds -= minu*60;
-             if(isNaN(minu))
-            minu='0';
-        if(isNaN(seconds))
-            seconds='0';
-        if(minu<10)
-        minu='0'+minu;
-          if(mili<10)
-        mili='0'+mili;
-          if(seconds<10)
-        seconds='0'+seconds;    
-        document.getElementById('ps1').innerHTML=minu+':'+seconds+':'+mili;
-        
-    }
-    if(percent==35){
-        ca=b.toFixed(2);
-            mili=(ca-parseInt(ca))*100;
-            mili=mili.toFixed(0);
-            seconds=parseInt(ca);
-            minu = Math.floor(seconds/60);
-            seconds -= minu*60;
-        if(minu==undefined)
-            minu='00';
-        if(minu<10)
-        minu='0'+minu;
-          if(mili<10)
-        mili='0'+mili;
-          if(seconds<10)
-        seconds='0'+seconds;    
-        document.getElementById('ps5').innerHTML=minu+':'+seconds+':'+mili;
-
-        }
-            if(percent==28){
-                    ca=b.toFixed(2);
+       if(c==43){
+                ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
             seconds=parseInt(ca);
@@ -221,9 +212,28 @@ if(percent == 80)
           if(seconds<10)
         seconds='0'+seconds;    
         document.getElementById('ps4').innerHTML=minu+':'+seconds+':'+mili;
-        
+       console.log("asd"); 
     }
-    if(percent==42){
+    if(c==53){
+        ca=b.toFixed(2);
+            mili=(ca-parseInt(ca))*100;
+            mili=mili.toFixed(0);
+            seconds=parseInt(ca);
+            minu = Math.floor(seconds/60);
+            seconds -= minu*60;
+        if(minu==undefined)
+            minu='00';
+        if(minu<10)
+        minu='0'+minu;
+          if(mili<10)
+        mili='0'+mili;
+          if(seconds<10)
+        seconds='0'+seconds;    
+       console.log("asd");
+        document.getElementById('ps5').innerHTML=minu+':'+seconds+':'+mili;
+        }
+     
+    if(c==58){
 ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
@@ -241,7 +251,7 @@ ca=b.toFixed(2);
         document.getElementById('ps6').innerHTML=minu+':'+seconds+':'+mili;
  
     }
-    if(percent==55){
+    if(c==64){
                 ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
@@ -258,7 +268,7 @@ ca=b.toFixed(2);
         seconds='0'+seconds;    
         document.getElementById('ps7').innerHTML=minu+':'+seconds+':'+mili;
     }
-    if(percent==65){
+    if(c==70){
         ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
@@ -275,7 +285,7 @@ ca=b.toFixed(2);
         seconds='0'+seconds;    
         document.getElementById('ps8').innerHTML=minu+':'+seconds+':'+mili;
                }
-           if(percent==75){
+           if(c==80){
         ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
             mili=mili.toFixed(0);
@@ -292,7 +302,7 @@ ca=b.toFixed(2);
         seconds='0'+seconds;    
         document.getElementById('ps9').innerHTML=minu+':'+seconds+':'+mili;
             }
-    if(percent==90)
+    if(c==100)
     {
     ca=b.toFixed(2);
             mili=(ca-parseInt(ca))*100;
@@ -311,7 +321,7 @@ ca=b.toFixed(2);
         document.getElementById('ps10').innerHTML=minu+':'+seconds+':'+mili;
        
     }
-    if(percent==100 ){        
+    if(c==100 ){        
         window.coun+=1;
         document.getElementById('ts12').innerHTML=window.coun;
     }
@@ -330,25 +340,49 @@ ca=b.toFixed(2);
 
 window.sm=function()
 {  
-   var c; 
-if(window.c==undefined)
+
+if(window.ca==undefined)
 {
-window.c=setInterval(function () {
+    window.saka=0;
+window.ca=setInterval(function () {
         requestAnimationFrame(animate);
     }, 1000 / fps);
             document.getElementById('sec').innerHTML = '00';
                         document.getElementById('hrs').innerHTML ='00'; 
                                     document.getElementById('min').innerHTML ='00'; 
+
 }
 else
 {
-    clearInterval(window.c);
-    window.c=undefined;
-    console.log("I worked");
-    percent=0;
+    clearInterval(window.ca);
+    clearInterval(window.cc);
+    window.ca=undefined;
+    window.saka=9;
 }
 return;
-//console.log("ASd");
+}
+window.resume=function()
+{  
+if(window.saka==1)
+{
+window.cc=setInterval(function () {
+        requestAnimationFrame(animate);
+    }, 1000 / fps);
+}
+
+window.saka=0;
+}
+window.pause=function()
+{
+if(window.saka==0)
+{
+    clearInterval(window.cc);
+    clearInterval(window.ca);
+    window.ca=1;
+
+    window.saka=1;
+    /*percent=0;*/
+}
 }
 
 // draw the current frame based on sliderValue
@@ -358,33 +392,116 @@ function draw(sliderValue) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineWidth = 5;
 
+    ctx.beginPath();                // straight line neeche wali
+    ctx.moveTo(70, 260);              //1st
+    ctx.lineTo(340, 260);
+    ctx.strokeStyle = 'gray';
+    ctx.stroke();
+
+
+ 
+
+// here
+
+
+
+
+  ctx.beginPath();                   //straight line uper wali
+    ctx.moveTo(70 , 100);
+    ctx.lineTo(340, 100);               //2nd
+    ctx.strokeStyle = 'gray';
+    ctx.stroke();
+
+
+ctx.beginPath();                               // left arc
+ctx.arc(85,180, 81, 0.5*Math.PI, 1.5*Math.PI);
+        //ctx.lineWidth = 5;
+        ctx.fillStyle = 'grey';
+   ctx.stroke();
+
+
+
+
+   ctx.beginPath();                               // right arc
+ctx.arc(340,180, 81, 0.5*Math.PI, 1.5*Math.PI,true);
+        //ctx.lineWidth = 5;
+        ctx.fillStyle = 'grey';
+   ctx.stroke();
+
+
     ctx.beginPath();
-    ctx.moveTo(10, 260);              //1st
-    ctx.lineTo(370, 260);
-    ctx.strokeStyle = 'gray';
-    ctx.stroke();
-
-
- ctx.beginPath();
-ctx.arc(370,260, 10, 0, 2 * Math.PI, false);
+ctx.arc(420,180, 10, 0, 2 * Math.PI, false);         //1st hai shayad
         ctx.lineWidth = 5;
         ctx.fillStyle = 'black';
    ctx.fill();
 
-   ctx.beginPath();
-    ctx.moveTo(370, 260);
-    ctx.lineTo(240, 260);               //2nd
-    ctx.strokeStyle = 'gray';
-    ctx.stroke();
-
  ctx.beginPath();
-ctx.arc(240,260, 10, 0, 2 * Math.PI, false);
+ctx.arc(260,260, 10, 0, 2 * Math.PI, false);   //left se 2nd
         ctx.lineWidth = 5;
         ctx.fillStyle = 'black';
    ctx.fill();
 
-   ctx.beginPath();
-    ctx.moveTo(240, 260);
+
+    ctx.beginPath();
+ctx.arc(190,260, 10, 0, 2 * Math.PI, false);   //left se 3rd
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+     ctx.beginPath();
+ctx.arc(120,260, 10, 0, 2 * Math.PI, false);   //left se 4th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+     ctx.beginPath();
+ctx.arc(340,260, 10, 0, 2 * Math.PI, false);   //left se 1st neeche wali line
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'red';
+   ctx.fill();
+
+       ctx.beginPath();
+ctx.arc(14,140, 10, 0, 2 * Math.PI, false);   //top-left se 1st
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+      ctx.beginPath();
+ctx.arc(120,100, 10, 0, 2 * Math.PI, false);   //top-left se 2nd
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+    ctx.beginPath();
+ctx.arc(190,100, 10, 0, 2 * Math.PI, false);   //top-left se 3rd
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+    ctx.beginPath();
+ctx.arc(260,100, 10, 0, 2 * Math.PI, false);   //left se 4th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+
+
+
+
+           ctx.beginPath();
+ctx.arc(340,100, 10, 0, 2 * Math.PI, false);   //left se 5th
+        ctx.lineWidth = 5;
+        ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+
+ /*  ctx.beginPath();
+    ctx.moveTo(240, 260); 
+     //ctx.lineTo(200,260);  //here
     ctx.lineTo(100, 260);               //3rd
     ctx.strokeStyle = 'gray';
     ctx.stroke();
@@ -396,8 +513,10 @@ ctx.arc(100,260, 10, 0, 2 * Math.PI, false);
    ctx.fill();
 
     ctx.beginPath();
-    ctx.moveTo(10, 260);
-    ctx.quadraticCurveTo(230, 200, 250, 120);    //4th
+    ctx.moveTo(100, 260);  //here
+    //ctx.moveTo(10, 260);
+    ctx.arcTo(10,40, 79, 40, 40);
+   // ctx.quadraticCurveTo(230, 200, 250, 120);    //4th
     ctx.strokeStyle = 'gray';
     ctx.stroke();
 
@@ -460,7 +579,7 @@ ctx.beginPath();
 ctx.arc(400,150, 10, 0, 2 * Math.PI, false);
         ctx.lineWidth = 5;
         ctx.fillStyle = 'black';
-   ctx.fill();
+   ctx.fill();*/
 
     // draw the tracking rectangle
     var xy;
@@ -468,53 +587,54 @@ ctx.arc(400,150, 10, 0, 2 * Math.PI, false);
         if (sliderValue < 25) {
         var percent = sliderValue / 24;
         xy = getLineXYatPercent({
-            x: 370,
+            x: 340,
             y: 260
         }, {
-            x: 10,
+            x: 60,
             y: 260
         }, percent);
     } else if (sliderValue < 50) {
         var percent = (sliderValue - 25) / 24
         xy = getQuadraticBezierXYatPercent({
-            x: 35,
+            x: 45,
             y: 260
         }, {
-            x: 230,
+            x: -27,
             y: 200
         }, {
-            x: 250,
-            y: 120
+            x: 60,
+            y: 100
         }, percent);
     } else if (sliderValue < 75) {
         var percent = (sliderValue - 50) / 24
-        xy = getCubicBezierXYatPercent({
-            x: 250,
-            y: 120
+         xy = getLineXYatPercent({
+            x: 60,
+            y: 100
         }, {
-            x: 290,
-            y: -40
-        }, {
-            x: 300,
-            y: 200
-        }, {
-            x: 400,
-            y: 150
-        }, percent);
-    } else {
+            x: 392,
+            y: 106
+        },percent);
+    }
+     else {
         var percent = (sliderValue - 75) / 25
-        xy = getLineXYatPercent({
-            x: 400,
-            y: 150
+        xy = getQuadraticBezierXYatPercent({
+            x: 399,
+            y: 126
         }, {
-            x: 370,
-            y: 260
-        }, percent);
+            x: 450,
+            y: 210
+        },
+        {
+           x: 340,
+           y:260
+        },percent);
+
     }
     drawRect(xy, "red");
 
-}
 
+
+}
 
 
 // draw tracking rect at xy
